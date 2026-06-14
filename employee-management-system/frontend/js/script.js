@@ -83,6 +83,13 @@ const department = document.getElementById("department").value.trim();
 const role = document.getElementById("role").value.trim();
 const salary = Number(document.getElementById("salary").value);
 const joinDate = document.getElementById("joinDate").value;
+const selectedDate = new Date(joinDate);
+const today = new Date();
+
+if(selectedDate > today){
+    alert("Join date cannot be in the future");
+    return;
+}
 
 if(!name || !department || !role || !salary || !joinDate){
     alert("All fields are required");
@@ -228,11 +235,4 @@ async function sortSalary(){
             </td>
         </tr>`;
     });
-}
-const selectedDate = new Date(joinDate);
-const today = new Date();
-
-if(selectedDate > today){
-    alert("Join date cannot be in the future");
-    return;
 }
