@@ -1,4 +1,5 @@
-const API_URL = "http://localhost:5000/api/employees";
+const API_URL =
+"https://employee-management-system-gfl9.onrender.com/api/employees";
 
 const form = document.getElementById("employeeForm");
 const employeeTable = document.getElementById("employeeTable");
