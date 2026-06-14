@@ -78,6 +78,41 @@ async function editEmployee(id){
 form.addEventListener("submit", async(e)=>{
 
     e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+const department = document.getElementById("department").value.trim();
+const role = document.getElementById("role").value.trim();
+const salary = Number(document.getElementById("salary").value);
+const joinDate = document.getElementById("joinDate").value;
+
+if(!name || !department || !role || !salary || !joinDate){
+    alert("All fields are required");
+    return;
+}
+
+if(name.length < 2){
+    alert("Name must be at least 2 characters");
+    return;
+}
+
+if(!isNaN(name)){
+    alert("Name cannot be only numbers");
+    return;
+}
+
+if(!isNaN(department)){
+    alert("Department cannot be only numbers");
+    return;
+}
+
+if(!isNaN(role)){
+    alert("Role cannot be only numbers");
+    return;
+}
+
+if(salary <= 0){
+    alert("Salary must be greater than 0");
+    return;
+}
 
     const employee = {
 
@@ -193,4 +228,11 @@ async function sortSalary(){
             </td>
         </tr>`;
     });
+}
+const selectedDate = new Date(joinDate);
+const today = new Date();
+
+if(selectedDate > today){
+    alert("Join date cannot be in the future");
+    return;
 }
